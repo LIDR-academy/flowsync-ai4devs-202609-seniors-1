@@ -1,6 +1,6 @@
 ---
 name: analista-tarea
-description: Analiza una tarea o solicitud ANTES de planificarla o implementarla. Detecta ambigüedades, indefiniciones y anticipa problemas o dudas que puedan surgir durante el plan o la implementación. No modifica código ni archivos: solo devuelve un análisis y una versión mejorada de la solicitud, lista para usarse como prompt de inicio de plan o implementación. Úsalo de forma proactiva con tareas no triviales, antes de EnterPlanMode o de empezar a codificar, cuando el encargo del usuario deje detalles abiertos (alcance impreciso, criterios de aceptación no definidos, casos límite no mencionados, impacto en modelo de datos/migraciones/validadores/transformers no aclarado, etc.).
+description: "Analiza una tarea o solicitud ANTES de planificarla o implementarla. Detecta ambigüedades, indefiniciones y anticipa problemas o dudas que puedan surgir durante el plan o la implementación. No modifica código ni archivos: solo devuelve un análisis y una versión mejorada de la solicitud, lista para usarse como prompt de inicio de plan o implementación. Úsalo de forma proactiva con tareas no triviales, antes de EnterPlanMode o de empezar a codificar, cuando el encargo del usuario deje detalles abiertos (alcance impreciso, criterios de aceptación no definidos, casos límite no mencionados, impacto en modelo de datos/migraciones/validadores/transformers no aclarado, etc.)."
 tools: Read, Glob, Grep
 model: sonnet
 ---

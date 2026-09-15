@@ -1,33 +1,14 @@
-# Prompts
+# Prompts versión con harness
 
-Aquí van **todos los prompts que lanzaste** para hacer el ejercicio, en el orden en que los
-lanzaste, con el modelo y la herramienta de cada uno.
-
-Esto no es papeleo. Lo que se revisa es **cómo pediste las cosas**, no solo lo que salió: un
-resultado flojo con un prompt bueno y un resultado flojo con un prompt vago necesitan feedback
-distinto, y sin este archivo no se distinguen.
-
-## Cómo rellenarlo
-
-- Un apartado `## Prompt N` por cada prompt.
-- **Pega el prompt tal cual lo lanzaste**, dentro del bloque de código, aunque ocupe diez líneas
-  y aunque tenga faltas. No lo reescribas para que quede bien: el que arreglaste mentalmente
-  después no es el que lanzaste.
-- Incluye también los que **no funcionaron**. Suelen ser los más útiles de leer.
-- `Modelo` y `Herramienta` en todos. Si cambiaste de una a otra a mitad, se nota aquí.
-
-Borra el ejemplo de abajo cuando escribas el primero.
-
----
 
 ## Prompt 1
 
 **Modelo:** Sonnet 5 High
 **Herramienta:** Claude Code
-
+```
 Crea un subagente especializado en analizar una tarea. Busca posibles ambigüedades, indefiniciones, o anticipa posibles problemas o dudas que aparecerán durante el plan o implementación de la tarea.
 No realiza cambios, solo mejora la solicitud, y una vez es válida la propone como prompt para iniciar el plan o implementación.
-
+```
 **Tiempo Ejecución:** 2 minutos
 
 **Qué salió:** Generó  .claude/agents/analista-tarea.md Parece válido, aunque repite contexto ya especificado en agents.md
@@ -36,7 +17,7 @@ No realiza cambios, solo mejora la solicitud, y una vez es válida la propone co
 
 **Modelo:** Opus 5 (1M) High
 **Herramienta:** Claude Code
-
+```
 subagent_type: "analista-tarea" Crear una página para el registro de nuevos usuarios y inicio de sesion, y otra página protegida a la que solo puedan acceder los usuarios autorizados, que mostrará información del usuario activo. 
 En la página inicial se añadirá un enlace a la página protegida y a la página de registro. Una vez registrado, el usuario será redirigido a una pagina protegida (solo accesible para usuarios registrados).
 El backend ya existe, tiene un endpoint de autenticación para el registro de nuevos usuarios y no se permite modificar nada del Backend.
@@ -46,7 +27,7 @@ Se considerará la tarea como completada cuando:
 - una petición valida de registro de usuario deje a este validado y se haya redirigido a la página protegida.
 	- Una petición invalida de registro de usuario muestre un mensaje de error claro, sin información técnica. Si es un problema de campos incorrectos (campo obligatorio no informado, longitud máxima o mínima de un campo) se indicará el campo que falla y el motivo del error.
 	- Un acceso de un usuario no autenticado a la página protegida devuelva un mensaje de error, o sea redirigido a una página de no autorizado.
-
+```
 **Tiempo Ejecución:** 5 minutos
 
 **Qué salió:** 
@@ -88,16 +69,16 @@ Dependencias: React Router es nueva → justificar en el PR.
 
 Verificación: manual en navegador de los 3 criterios de aceptación. No se añade tooling de testing.
 
+Resultado prompt anterior era ¿Entro en modo plan con esto?
 
 ## Prompt 3
 
 **Modelo:** Opus 5 (1M) High
 **Herramienta:** Claude Code
 
-Resultado prompt anterior era ¿Entro en modo plan con esto?
-Confirmo entrar en modo plan. 
+```Confirmo entrar en modo plan. ```
 
-**Tiempo Ejecución:** 10 minutos
+**Tiempo Ejecución:** 25 minutos
 
 **Qué salió:** 
 Investigación completa. Hallazgos que cambian el diseño respecto al análisis inicial:
@@ -118,24 +99,14 @@ Selecciono opcion recomendada (novato en el stack)
 - Validación en el cliente antes de enviar, o solo la del backend. Opciones espejo + bakendmanda. Solo backend. Otras.
 Selecciono solo backend.
 
-
-## Prompt 4
-
-**Modelo:** Opus 5 (1M) High
-**Herramienta:** Claude Code
-
-Continua plan...
-
-**Tiempo Ejecución:** 20 minutos
-**Qué salió:** 
-Plan, con notas para el PR:
+Genera plan, con notas para el PR:
 
 Notas para el PR
 react-router-dom es la única dependencia nueva; AGENTS.md exige justificarla. Motivo: rutas declarativas, <Navigate> y guard limpio; la alternativa era un router casero sobre history.pushState.
 Token en localStorage: única opción razonable contra una API de Bearer tokens sin flujo de cookies. Es legible por cualquier script inyectado; la alternativa (cookie httpOnly) exigiría tocar el backend, que está fuera de alcance. Reconocerlo explícitamente.
 CORS solo abierto en dev (cors.ts:21 origin: app.inDev ? true : []). Arrancar el backend con NODE_ENV=production hace fallar todas las peticiones. Mencionarlo en troubleshooting.
 
-## Prompt 5
+## Prompt 4
 
 **Modelo:** Opus 5 (1M) High
 **Herramienta:** Claude Code
@@ -159,23 +130,27 @@ Verificado
 Una corrección al plan
 Lo que no he podido verificar
 
-## Prompt 6
+## Prompt 5
 
 **Modelo:** Opus 5 (1M) High
 **Herramienta:** Claude Code
 
+```
 /context
+```
 
 **Tiempo Ejecución:** 
 **Qué salió:**  16% (161.7k)
 
 
-## Prompt 7
+## Prompt 6
 
 **Modelo:** Opus 5 (1M) High
 **Herramienta:** Claude Code
 
+```
 /commit-message  
+```
 
 **Tiempo Ejecución:** 2 minutos
 **Qué salió:**  
@@ -206,3 +181,132 @@ para no solapar anuncios cuando fallan varios campos a la vez.
 Añade react-router-dom como única dependencia nueva: aporta rutas
 declarativas y redirecciones; la alternativa era un router propio sobre
 history.pushState.
+
+# Prompts (versión sin harness)
+
+## Prompt 1
+
+**Modelo:** Opus 1M xHigh
+**Herramienta:** Claude Code (VS Code) > Mode Auto > Effort (High)
+
+```
+Crear una página para el registro de nuevos usuarios y inicio de sesion, y otra página protegida a la que solo puedan acceder los usuarios autorizados, que mostrará información del usuario activo. 
+En la página inicial se añadirá un enlace a la página protegida y a la página de registro. Una vez registrado, el usuario será redirigido a una pagina protegida (solo accesible para usuarios registrados).
+El backend ya existe, tiene un endpoint de autenticación para el registro de nuevos usuarios y no se permite modificar nada del Backend.
+Las reglas de validación de nuevos usuarios deben coincidir con las comprobaciones del Backend, y no pueden añadirse reglas adicionales.
+En caso de error en el registro se mostrará un mensaje claro, sin detalle técnico de lo que ha fallado.
+Se considerará la tarea como completada cuando:
+- una petición valida de registro de usuario deje a este validado y se haya redirigido a la página protegida.
+	- Una petición invalida de registro de usuario muestre un mensaje de error claro, sin información técnica. Si es un problema de campos incorrectos (campo obligatorio no informado, longitud máxima o mínima de un campo) se indicará el campo que falla y el motivo del error.
+	- Un acceso de un usuario no autenticado a la página protegida devuelva un mensaje de error, o sea redirigido a una página de no autorizado.
+```
+
+**Tiempo Ejecución:** 10 minutos.
+
+**Qué salió:** 
+```
+Hecho. El backend no se ha tocado; todo el trabajo está en frontend/.
+
+Páginas y rutas
+Ruta	Página	Acceso
+/	HomePage.tsx	Pública, con enlaces a Crear cuenta y Ir a mi panel
+/registro	RegisterPage.tsx	Pública
+/login	LoginPage.tsx	Pública
+/panel	DashboardPage.tsx	Protegida — datos del usuario activo
+/no-autorizado	UnauthorizedPage.tsx	Pública
+RequireAuth.tsx envuelve /panel: sin sesión válida redirige a /no-autorizado. El token de localStorage no se da por bueno hasta que GET /account/profile lo resuelve en un usuario real, así que un token caducado o manipulado también acaba en la página de no autorizado.
+
+Validación alineada con el backend
+validation.ts replica backend/app/validators/user.ts y nada más:
+
+email — obligatorio, formato, máx. 254
+password / passwordConfirmation — obligatorios, 8–32, deben coincidir
+fullName — sin comprobación, porque en el backend es nullable() y un valor vacío se guarda como null (verificado contra la API)
+Mensajes de error
+field-messages.ts es la única fuente de texto, y api-errors.ts traduce cada respuesta de la API por su rule, descartando siempre el message del servidor. Así no se filtra ni texto interno en inglés ni nombres de reglas, y el mismo fallo se lee igual lo detecte el cliente o el servidor. Verificado contra la API real:
+
+Respuesta de la API	Lo que ve el usuario
+{"rule":"required","field":"email"}	Email: es un campo obligatorio.
+{"rule":"minLength","meta":{"min":8}}	Contraseña: debe tener al menos 8 caracteres.
+{"rule":"maxLength","meta":{"max":32}}	Contraseña: no puede superar los 32 caracteres.
+{"rule":"sameAs"}	Confirmación de contraseña: debe coincidir con la contraseña introducida.
+{"rule":"database.unique","field":"email"}	Email: ya existe una cuenta registrada con este correo.
+Cualquier otro fallo (500, credenciales…)	Mensaje genérico, sin detalle
+Verificación
+Probé los cinco casos de error contra la API en marcha comparando la validación de cliente con la del servidor: en todos coinciden palabra por palabra y ninguna cadena técnica llega a la pantalla. También comprobé por HTTP el alta válida, /account/profile con token válido (200), inválido (401) y tras logout (401). tsc -b, vite build y oxlint pasan limpios.
+
+Lo que no he podido ejercitar es la navegación real en navegador (no tengo herramienta de browser aquí): el redirigido tras el alta y el guardia de ruta están verificados por código y por las respuestas de la API, no clicando.
+
+Dos apuntes: añadí react-router-dom como dependencia, y un proxy /api en vite.config.ts para que el navegador hable con un solo origen (se puede apuntar a otro sitio con VITE_API_URL). Dejé la base de datos de desarrollo con 0 usuarios, como estaba, y paré los dos servidores que arranqué.
+```
+
+## Prompt 2
+
+**Modelo:** Opus 1M xHigh
+**Herramienta:** Claude Code (VS Code) > Mode Auto > Effort (High)
+
+```
+/context
+```
+
+**Tiempo Ejecución:** 0
+
+**Qué salió:** 
+11% (111.2k tokens)
+
+
+## Prompt 3
+
+**Modelo:** Opus 1M xHigh
+**Herramienta:** Claude Code (VS Code) > Mode Auto > Effort (High)
+
+(mismo contenido que definición de skill creado en versión con harness)
+```
+Usa herramientas "git status" y "git diff" para identificar los cambios realizados antes de generar el mensaje de commit.
+
+El mensaje de commit generado debe ser claro y conciso, describiendo los cambios realizados y su propósito, y usando el formato Conventional Commits.
+
+Solo genera el mensaje de commit, no realices el commit ni modifiques el código, ni hagas push.
+
+
+
+# Formato Conventional Commits:
+•	feat: nueva funcionalidad
+•	fix: corrección de bug
+•	docs: cambios en documentación
+•	refactor: refactorización sin cambio de comportamiento
+•	test: añadir o modificar tests
+•	chore: mantenimiento, configuración
+
+## Reglas para mensajes:
+•	Verbo en imperativo presente (add, no added ni adds).
+•	Explica qué y por qué, no solo "cambios varios".
+•	Primera línea ≤ 72 caracteres.
+```
+
+**Tiempo Ejecución:** 2 minutos
+
+**Qué salió:** 
+feat(frontend): añade registro, login y panel protegido
+
+Monta el flujo de autenticación completo en el cliente sobre la API
+existente, sin modificar el backend.
+
+- Enruta la SPA con react-router-dom: /, /registro, /login, /panel y
+  /no-autorizado. La página inicial enlaza a registro y al panel.
+- Protege /panel con RequireAuth: el token guardado no se da por bueno
+  hasta que GET /account/profile lo resuelve en un usuario real, así que
+  una sesión ausente, caducada o manipulada acaba en /no-autorizado.
+- Redirige al panel tras un alta o un inicio de sesión correctos, y
+  muestra allí los datos del usuario activo.
+- Replica en validation.ts las reglas de app/validators/user.ts y solo
+  esas: email obligatorio, con formato y máx. 254; contraseña de 8 a 32
+  y confirmación idéntica. fullName queda sin comprobar porque en el
+  backend es nullable y un valor vacío se guarda como null.
+- Traduce los errores de la API por su `rule` y descarta su `message`,
+  de modo que no llega texto interno a la pantalla; los fallos de campo
+  sí indican qué campo es y por qué, y el resto cae en un mensaje
+  genérico.
+- Proxea /api en vite.config.ts para que el navegador use un único
+  origen en desarrollo, configurable con VITE_API_URL.
+
