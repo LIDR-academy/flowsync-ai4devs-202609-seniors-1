@@ -1,35 +1,35 @@
 # Prompts
 
-Aquí van **todos los prompts que lanzaste** para hacer el ejercicio, en el orden en que los
-lanzaste, con el modelo y la herramienta de cada uno.
-
-Esto no es papeleo. Lo que se revisa es **cómo pediste las cosas**, no solo lo que salió: un
-resultado flojo con un prompt bueno y un resultado flojo con un prompt vago necesitan feedback
-distinto, y sin este archivo no se distinguen.
-
-## Cómo rellenarlo
-
-- Un apartado `## Prompt N` por cada prompt.
-- **Pega el prompt tal cual lo lanzaste**, dentro del bloque de código, aunque ocupe diez líneas
-  y aunque tenga faltas. No lo reescribas para que quede bien: el que arreglaste mentalmente
-  después no es el que lanzaste.
-- Incluye también los que **no funcionaron**. Suelen ser los más útiles de leer.
-- `Modelo` y `Herramienta` en todos. Si cambiaste de una a otra a mitad, se nota aquí.
-
-Borra el ejemplo de abajo cuando escribas el primero.
-
----
+--- Proyecto con harness
 
 ## Prompt 1
 
-**Modelo:** Opus 1M xHigh
+**Modelo:** Sonnet 4.6 High
 **Herramienta:** Claude Code
 
 ```
-Este es el ejemplo. Bórralo.
-
-El prompt va aquí dentro, entero y con sus saltos de línea,
-para que se sepa dónde empieza y dónde acaba.
+Creame un archivo claude md con las siguiente convesiones, para mi proyecto, vamos a utilizar artiquitectura limpia, principios solid y patrones. tambien implementa prueba unitarias que verifiquen el funcionamiento de que cada componente del software
 ```
+## Promt dos 
 
-**Qué salió:** (opcional, una línea) funcionó a la primera / tuve que insistir / me inventó una ruta que no existe.
+Puede leerme de gira cuantas tareas tengo
+
+## Promt tres 
+
+Desarrollame la tarea flow-1
+
+
+**Qué salió:** Tarea clara. Voy a revisar el código existente para seguir los patrones del proyecto antes de implementar.
+
+
+
+--- Proyecto sin  harness
+
+## Prompt 1
+Se requiere llevar un registro de compra de kits en línea, por tanto, es necesario registrar el nombre de persona fisca, nombre y apellidos, correo, cedula y la cantidad de kits, los kits son talla S, M Y L y debo también poder indicar la cantidad por talla que el cliente adquirió.  únicamente el campo de nombre correo son obligatorios. también de manera fácil debo poder saber si ya alguien este previamente registrado, para no duplicar registros en la base de datos.
+
+
+**Qué salió:** 
+Entiendo bien el stack. Voy a implementar el registro de compra de kits completo: migración, modelo, validador, controlador, rutas en el backend, y formulario con verificación de duplicados en el frontend.
+
+Primero leo los archivos clave para seguir los patrones existentes.
