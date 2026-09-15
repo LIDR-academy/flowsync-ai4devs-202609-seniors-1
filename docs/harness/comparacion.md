@@ -1,4 +1,4 @@
-# Comparación
+# Parte A: dos copias, un solo encargo. Comparación
 | Versión           | **CON harness**                           | **SIN harness**  |
 |:-------------     |:-----------                               |:------------|
 | **Qué archivos tocó** | **24**                                | **21**     |

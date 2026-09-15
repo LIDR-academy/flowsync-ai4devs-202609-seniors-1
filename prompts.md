@@ -309,4 +309,3 @@ existente, sin modificar el backend.
   genérico.
 - Proxea /api en vite.config.ts para que el navegador use un único
   origen en desarrollo, configurable con VITE_API_URL.
-
