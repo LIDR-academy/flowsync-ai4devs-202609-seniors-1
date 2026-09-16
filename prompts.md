@@ -915,3 +915,12 @@ sx (render dentro de AuthProvider): campos y botón con nombre exacto Login; blu
 
 y lo anadas al archivo comparacion.md.
 ```
+
+## Prompt 43
+
+**Modelo:** Opus 5 High
+**Herramienta:** Claude Code
+
+```
+necesito que esta rama contenga solo los archivos comparacion y prompts, en sus rutas actuales. Puedes eliminar el resto de archivos creados y hacer commit solo con esos dos?
+```
