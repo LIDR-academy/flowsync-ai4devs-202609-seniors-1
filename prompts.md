@@ -22,14 +22,28 @@ Borra el ejemplo de abajo cuando escribas el primero.
 
 ## Prompt 1
 
-**Modelo:** Opus 1M xHigh
+**Modelo:** Sonnet 5 High
 **Herramienta:** Claude Code
 
 ```
-Este es el ejemplo. Bórralo.
-
-El prompt va aquí dentro, entero y con sus saltos de línea,
-para que se sepa dónde empieza y dónde acaba.
+Lee el ticket que hay en el board de Jira y aplica la descripcion que contiene
 ```
 
-**Qué salió:** (opcional, una línea) funcionó a la primera / tuve que insistir / me inventó una ruta que no existe.
+**Qué salió:** Funciono a la primera lo que le habia pedido. tambien comentar que el ejemplo ha sido algo muy sencillo de hacer. Quizo hizo un poco mas, pero todo bien.
+
+
+El ticket de jira decia lo siguiente: 
+**Titulo**: Mejorar el formulario de login
+**descripcion**:
+
+Como usuario quiero tener feedback en el inicio de la session, sabiendo si lo he hecho bien o si lo he hecho mal y el porque se ha hecho mal.
+
+ACCEPTANCE CRITERIA
+
+    Mensaje de success si todo ha ido bien
+
+    Mensaje de error con el error message si ha ocurrido algo. Los tipos de error que se van a incluir en esta version van a ser:
+        Bad credentials
+        Max password retries
+        Max login attempts
+        Internal error
