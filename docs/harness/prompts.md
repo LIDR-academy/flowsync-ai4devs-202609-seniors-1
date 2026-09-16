@@ -62,6 +62,7 @@ La definición del arnés de seguridad escrita en el claude.md
 
 **Modelo:** Opus 5
 **Herramienta:** Claude Code
+**Tiempo:** 5m
 
 ```
 Crear pantalla de login con campos para la entrada del usuario, clave y opciones para recordar al usuario asi como el registro del mismo. El diseño de esta página debe ser simple y funcional.
