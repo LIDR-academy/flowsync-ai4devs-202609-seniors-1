@@ -22,14 +22,137 @@ Borra el ejemplo de abajo cuando escribas el primero.
 
 ## Prompt 1
 
-**Modelo:** Opus 1M xHigh
+**Modelo:** Opus 5
+**Herramienta:** Claude Code
+**Tiempo: 1m**
+```
+Analiza la estrucutra de este proyecto, tecnología usada y funcionalidad actual así como las tools disponibles.
+Lista los endpoints disponibles, asi como los tests y casuisticas.
+Resume todo en el fichero claude.md
+Para las salidas y ahorro de tokens vamos a usar la skill CAVEMAN
+
+```
+
+**Qué salió:** 
+Un análisis del proyecto, con estructura, convenciones, modelo de datos y comandos, asi como la tecnologia usada en el proyecto
+
+
+## Prompt 2
+
+**Modelo:** Opus 5
+**Herramienta:** Claude Code
+**Tiempo: ** 3m
+
+```
+Vamos a crear un arnés de seguridad en el cual vamos a seguir estos puntos:
+1. Restringir inicialmente el acceso a git, solamente se va a permitir pull.
+2. No borrar datos de la base de datos
+3. Notificar de posibles fallos.
+4. Crear un subagente llamado auditor para que verifique estas retricciones en las peticiones que se hagan para evitar errores.
+
+
+
+```
+
+**Qué salió:** 
+La definición del arnés de seguridad escrita en el claude.md
+
+
+## Prompt n
+
+**Modelo:** Opus 5
 **Herramienta:** Claude Code
 
 ```
-Este es el ejemplo. Bórralo.
+Crear pantalla de login con campos para la entrada del usuario, clave y opciones para recordar al usuario asi como el registro del mismo. El diseño de esta página debe ser simple y funcional.
+Mostrar opción para crear cuenta en caso que el usuario no tenga cuenta actualmente en el sistema.
 
-El prompt va aquí dentro, entero y con sus saltos de línea,
-para que se sepa dónde empieza y dónde acaba.
+
 ```
 
-**Qué salió:** (opcional, una línea) funcionó a la primera / tuve que insistir / me inventó una ruta que no existe.
+**Qué salió:** 
+
+
+## Prompt n
+
+**Modelo:** Opus 5
+**Herramienta:** Claude Code
+
+```
+
+
+```
+
+**Qué salió:** 
+
+## Prompt n
+
+**Modelo:** Opus 5
+**Herramienta:** Claude Code
+
+```
+
+
+```
+
+**Qué salió:** 
+
+## Prompt n
+
+**Modelo:** Opus 5
+**Herramienta:** Claude Code
+
+```
+
+
+```
+
+**Qué salió:** 
+
+## Prompt n
+
+**Modelo:** Opus 5
+**Herramienta:** Claude Code
+
+```
+
+
+```
+
+**Qué salió:** 
+
+## Prompt n
+
+**Modelo:** Opus 5
+**Herramienta:** Claude Code
+
+```
+
+
+```
+
+**Qué salió:** 
+
+## Prompt n
+
+**Modelo:** Opus 5
+**Herramienta:** Claude Code
+
+```
+
+
+```
+
+**Qué salió:** 
+
+## Prompt n
+
+**Modelo:** Opus 5
+**Herramienta:** Claude Code
+
+```
+
+
+```
+
+**Qué salió:** 
