@@ -22,14 +22,34 @@ Borra el ejemplo de abajo cuando escribas el primero.
 
 ## Prompt 1
 
-**Modelo:** Opus 1M xHigh
-**Herramienta:** Claude Code
+**Modelo:** Opus 
+**Herramienta:** Claude CLI
 
 ```
-Este es el ejemplo. Bórralo.
-
-El prompt va aquí dentro, entero y con sus saltos de línea,
-para que se sepa dónde empieza y dónde acaba.
+Work in the Jira story FLOW-1 as typescript developer
+Build in the frontend the profile page requested in that ticket
+The task will be finish when
+- the react component is built and working
+- unit tests have been built and passed
+- the definion of done is success
+Do not touch the backend, that code is already working
+Use the profile endpoint in the backend to get the needed data.
+All the information on the backend should be displayed in the new page
 ```
 
-**Qué salió:** (opcional, una línea) funcionó a la primera / tuve que insistir / me inventó una ruta que no existe.
+**Qué salió:** (opcional, una línea) Ambos pidieron confirmacion para acceder a atlassian, la ejecucion de determinados comandos y el acceso a ficheros
+Con harness login es requiredo para acceder a la pagina no usuario pwd solicitado. Sin harness no acabo durante la duracion del test
+
+## Prompt 1
+
+**Modelo:** Opus 
+**Herramienta:** Claude CLI
+
+```
+Amend the previous implementation with the same role. The needed changes are:
+- Implement the login by user user password
+- Home page should not require login, only the profile page.
+- Accessing to the profile page should be using a link in the home page
+```
+
+**Qué salió:** (opcional, una línea) Solo ejecutado en le project harness y no acabo durante la duracion del test.
