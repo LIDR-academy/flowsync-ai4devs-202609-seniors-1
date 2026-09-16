@@ -55,7 +55,11 @@ export function TasksView({
       )}
 
       {creating && (
-        <TaskForm onSubmit={handleCreate} onCancel={() => setCreating(false)} submitLabel="Create" />
+        <TaskForm
+          onSubmit={handleCreate}
+          onCancel={() => setCreating(false)}
+          submitLabel="Create"
+        />
       )}
 
       {editingTask && (
