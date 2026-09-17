@@ -22,14 +22,30 @@ Borra el ejemplo de abajo cuando escribas el primero.
 
 ## Prompt 1
 
-**Modelo:** Opus 1M xHigh
+**Modelo:** Login
 **Herramienta:** Claude Code
+```
+ Ejecuta lo necesario para crear la tarea de Jira llamada FLOW-1 tomando en cuenta el contexto de la tarea, recuerda que se debe realizar lo correpondiente al front y back
+
+  Read 4 files, listed 1 directory, called atlassian 4 times
+
+FLOW-1 ya existe en el proyecto FlowSync — no hay que crearla desde cero. Ya tiene resumen "Creación de login" y una descripción que cubre tanto frontend (UI, validaciones, estados visuales, responsive) como backend (hash de contraseñas, HTTPS, rate limiting, sesión). Está en "Por hacer", pero sin asignar. Voy a asignártela para que cumpla lo que pide el ejercicio (ticket en "Por hacer" y asignado a ti)
+  Called atlassian
+
+FLOW-1 ya existía en el proyecto FlowSync (creada hoy a las 14:16), así que no la dupliqué — solo le faltaba la asignación:
+
+- Resumen: "Creación de login"
+- Estado: Por hacer ✓
+- Asignada a: Sara Sanchez ✓ (acabo de completarlo, estaba sin asignar)
+- Descripción: ya cubre front y back — alcance funcional, seguridad mínima (hash, HTTPS, límite de intentos, expiración de sesión), y criterios de diseño responsive; incluye 11 criterios de aceptación.
+
+Está lista para el paso 4 del ejercicio: lanzarla con /priority-ticket en la copia con harness.
 
 ```
-Este es el ejemplo. Bórralo.
-
-El prompt va aquí dentro, entero y con sus saltos de línea,
-para que se sepa dónde empieza y dónde acaba.
+##Promt 2
+```
+Requiero que realices la tarea FLOW-1 dentro de este proyecto, tanto el back como front, con la conexion correspondiente, tomando en cuanta los lenguajes de programacion que se tienen
 ```
 
 **Qué salió:** (opcional, una línea) funcionó a la primera / tuve que insistir / me inventó una ruta que no existe.
+Salio a la segunda linea, ya que en la primera no fui clara e interpreto que quería que hiciera la tarea en Jira no que la tomara como referencia
