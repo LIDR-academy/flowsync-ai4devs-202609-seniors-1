@@ -22,14 +22,31 @@ Borra el ejemplo de abajo cuando escribas el primero.
 
 ## Prompt 1
 
+**Modelo:** Sonnet 5
+**Herramienta:** Claude Code
+
+```
+/init
+```
+
+**Qué salió:** Claude me dió la opción de dejarle decidir lo que pondría en CLAUDE.md, incluyendo skills. Generó
+un CLAUDE.md, un settings.json y un SKILL.md dentro de .claude/skills/verify. Esta skill hace un post hook que se
+se lanza cuando se termina de editar un código.
+
+
+## Prompt 2
+
 **Modelo:** Opus 1M xHigh
 **Herramienta:** Claude Code
 
 ```
-Este es el ejemplo. Bórralo.
+En una nueva sesión Claude le puse el prompt:
+Implementa el cambio FLOW-1
 
-El prompt va aquí dentro, entero y con sus saltos de línea,
-para que se sepa dónde empieza y dónde acaba.
+
 ```
 
-**Qué salió:** (opcional, una línea) funcionó a la primera / tuve que insistir / me inventó una ruta que no existe.
+**Qué salió:** (opcional, una línea) Me dió la opción de instalar un plugin para chrome para comprobar el resultado
+y el cambio del formulario se generó a la primera
+
+
