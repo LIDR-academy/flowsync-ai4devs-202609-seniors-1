@@ -256,3 +256,11 @@ button {
 .stat-label {
   font-size: 14px;
 }
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  font-size: 14px;
+}

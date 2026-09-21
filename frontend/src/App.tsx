@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useAuth } from './contexts/AuthContext'
 import { useTasks } from './hooks/useTasks'
 import { TasksView } from './components/TasksView'
 import { Dashboard } from './components/Dashboard'
@@ -7,6 +8,7 @@ import './App.css'
 type Tab = 'tasks' | 'dashboard'
 
 function App() {
+  const { user, logout } = useAuth()
   const [activeTab, setActiveTab] = useState<Tab>('tasks')
   const { tasks, loading, error, createTask, updateTask, deleteTask, toggleComplete } = useTasks()
 
@@ -30,6 +32,16 @@ function App() {
             Dashboard
           </button>
         </nav>
+        {user && (
+          <div className="user-menu">
+            <span title={user.email}>
+              <strong>{user.initials}</strong> {user.fullName ?? user.email}
+            </span>
+            <button type="button" onClick={logout}>
+              Cerrar sesión
+            </button>
+          </div>
+        )}
       </header>
 
       <main>
