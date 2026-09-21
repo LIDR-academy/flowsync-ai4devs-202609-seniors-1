@@ -33,14 +33,14 @@ Riesgo principal a validar: si la información se queda vieja, el producto pierd
 - **Analítica / reporting** — no hay quién lo consuma; el usuario objetivo son los pares, no un manager pidiendo métricas.
 - **Sprints, estimaciones, épicas, backlog priorizado** — es justo el "rollo de Jira" que se quiere evitar; un equipo que necesite ese nivel de planificación no es el usuario de este MVP.
 - **Convivir con otro gestor de tareas** — mantener dos fuentes de verdad mata la frescura por duplicidad de actualización; FlowSync sustituye, no complementa.
-
+## NO-alcance (mis recortes)
 - **El estado se ve actualizado al entrar o volver a la vista, sin necesidad de preguntar (frescura, no aviso que interrumpe).** - Parece un alcance redundante sin en las dos primeras ya indicamos que tenemos un espacio único y compartido por todos, donde están las tareas.
 - **Lista de tareas filtrable por estado.** - Puede ser útil, pero para una prueba inicial no es requisito indispensable. Tendría más sentido con un sistema ya probado con más volumen de tareas, para mejorar la visibilidad.
 - **Cambiar el estado de una tarea en dos clics, sin campos obligatorios extra.** - He modificado el último alcance para que en vez de ser "Cualquiera crea una tarea", que sea "Cualquiera crea o edita una tarea". De este modo, es irrelevante que sean 2 clics, y de hecho el concepto en sí no tiene sentido si no se ha creado previamente la tarea. Si la tarea no existe requerirá más de 2 clics, y si ya existe puede bastar con uno si sólo debe cambiar el estado. Lo importante es que sea sencillo, no que sean 2 clics.
 
 ## PARTE B
 
-1. La IA propuso 6 puntos en Alcance y 9 puntos en No-Alcance.
+1. La IA propuso 6 puntos en Alcance; tras mi propio recorte encima del suyo, quedaron 3.
 2. Tres exclusiones concretas:
 - **El estado se ve actualizado al entrar o volver a la vista, sin necesidad de preguntar** - Esto fuera, porque es redundante con respecto a otros Alcances, al tener ya un espacio único y compartido donde están las tareas.
 - **Lista de tareas filtrable por estado** - Fuera, porque si bien puede ser útil, para una prueba piloto no habrá un exceso de tareas, con lo que de momento no es necesario poder filtrar para testear su utilidad.
