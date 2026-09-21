@@ -1,0 +1,266 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: left;
+  padding: 32px;
+  box-sizing: border-box;
+
+  @media (max-width: 1024px) {
+    padding: 20px;
+  }
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+
+  h1 {
+    margin: 0;
+    font-size: 32px;
+  }
+}
+
+.tab-nav {
+  display: flex;
+  gap: 8px;
+
+  button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+
+    &.active {
+      background: var(--accent-bg);
+      border-color: var(--accent-border);
+      color: var(--text-h);
+    }
+  }
+}
+
+.error-banner {
+  color: #dc2626;
+  margin-bottom: 16px;
+}
+
+.tasks-view {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  max-width: 480px;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+  }
+
+  input[type='text'],
+  textarea {
+    font: inherit;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text-h);
+  }
+
+  textarea {
+    min-height: 80px;
+    resize: vertical;
+  }
+
+  .checkbox-label {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+button {
+  font: inherit;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-h);
+  cursor: pointer;
+
+  &.danger {
+    color: #dc2626;
+    border-color: #dc2626;
+  }
+}
+
+.tag-input {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+
+  input {
+    flex: 1 1 120px;
+    border: none;
+    background: transparent;
+    font: inherit;
+    color: var(--text-h);
+    outline: none;
+    min-width: 120px;
+  }
+}
+
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--accent-bg);
+  color: var(--text-h);
+  font-size: 13px;
+
+  &.read-only {
+    padding: 2px 10px;
+  }
+
+  button {
+    padding: 0;
+    border: none;
+    background: none;
+    color: inherit;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+  }
+}
+
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+
+  button {
+    text-transform: capitalize;
+    padding: 4px 12px;
+
+    &.active {
+      background: var(--accent-bg);
+      border-color: var(--accent-border);
+    }
+  }
+}
+
+.task-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.task-list tr {
+  border-top: 1px solid var(--border);
+
+  &.completed .task-title {
+    text-decoration: line-through;
+    color: var(--text);
+  }
+}
+
+.task-cell {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+.task-title {
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+.task-description {
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.task-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  white-space: nowrap;
+}
+
+.empty-state {
+  color: var(--text);
+  padding: 24px 0;
+}
+
+.confirm-dialog {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  max-width: 720px;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.stat-label {
+  font-size: 14px;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  font-size: 14px;
+}
