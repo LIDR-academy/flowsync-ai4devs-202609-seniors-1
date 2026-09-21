@@ -60,3 +60,10 @@ Run both dev servers in separate terminals from the repo root; the backend must 
 ## Git workflow
 
 This repo is normally worked from a personal fork, with `origin` = your fork and `upstream` = the course repo. Pull requests target `upstream` (the course repo), not `origin`. Keep that distinction in mind before pushing branches or opening PRs — don't assume `origin` is the PR target.
+
+## Reglas de proceso
+
+- Antes de tocar código: crear una rama nueva (`git checkout -b feat/<slug>`). Nunca commitear directo en `main`/`s1/start`.
+- Al cerrar la tarea: usar la skill `/commit`, luego `gh pr create` con una descripción completa de los cambios en el cuerpo del PR.
+- Después de abrir el PR: usar el subagente `adversarial-reviewer` sobre él, antes de darlo por terminado.
+- No repitas ese resumen en el chat: la sesión se va a perder, el PR no. Responde solo con la URL del PR.
