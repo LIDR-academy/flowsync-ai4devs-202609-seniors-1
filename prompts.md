@@ -258,7 +258,7 @@ Coste que sí tiene dejarlo: es un cuarto campo obligatorio en la creación de l
 
 Lo saco del alcance. Tarea queda en tres campos: título, responsable, estado. Fecha de vencimiento (y su marca visual) pasa a NO-alcance: es gestión de plazos, un problema distinto al que este MVP valida, y su ausencia no afecta al criterio de éxito.
 
-## Prompt 8
+## Prompt 9
 **Modelo:** Sonnet 5 High
 **Herramienta:** Claude Code
 
