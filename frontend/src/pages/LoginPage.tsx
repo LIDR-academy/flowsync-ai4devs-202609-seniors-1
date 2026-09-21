@@ -30,8 +30,12 @@ export function LoginPage() {
   async function handleSubmit(event: FormEvent) {
     event.preventDefault()
     setSubmitting(true)
-    const result = await login({ email, password })
-    setSubmitting(false)
+    let result: FormError | null
+    try {
+      result = await login({ email, password })
+    } finally {
+      setSubmitting(false)
+    }
     if (result) {
       setError(result)
       return

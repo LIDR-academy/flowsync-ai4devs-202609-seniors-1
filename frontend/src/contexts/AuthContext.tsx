@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import type { ReactNode } from 'react'
 import { api } from '@/lib/api'
-import { getToken, setToken } from '@/lib/token'
+import { getToken, setToken, setUnauthorizedHandler } from '@/lib/token'
 import { toFormError, type FormError } from '@/lib/apiErrors'
 import type { LoginInput, SignupInput, User } from '@/types/auth'
 
@@ -19,6 +19,15 @@ const AuthContext = createContext<AuthContextValue | null>(null)
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(() => getToken() !== null)
+
+  // An expired/revoked token mid-session: drop it so ProtectedRoute redirects to /login.
+  useEffect(() => {
+    setUnauthorizedHandler(() => {
+      setToken(null)
+      setUser(null)
+    })
+    return () => setUnauthorizedHandler(null)
+  }, [])
 
   useEffect(() => {
     if (!getToken()) return
@@ -47,7 +56,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const [result, err] = await api.account.profile({}).safe()
     if (err) {
       setToken(null)
-      return toFormError(err)
+      return toFormError(err, 'session')
     }
     setUser(result.data)
     return null
@@ -65,7 +74,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signup = useCallback(
     async (input: SignupInput) => {
       const [result, err] = await api.auth.signup({ body: input }).safe()
-      if (err) return toFormError(err)
+      if (err) return toFormError(err, 'signup')
       return startSession(result.data.token)
     },
     [startSession]

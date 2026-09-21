@@ -44,13 +44,17 @@ export function SignupPage() {
     }
 
     setSubmitting(true)
-    const result = await signup({
-      fullName: fullName.trim() || null,
-      email,
-      password,
-      passwordConfirmation,
-    })
-    setSubmitting(false)
+    let result: FormError | null
+    try {
+      result = await signup({
+        fullName: fullName.trim() || null,
+        email,
+        password,
+        passwordConfirmation,
+      })
+    } finally {
+      setSubmitting(false)
+    }
     if (result) {
       setError(result)
       return

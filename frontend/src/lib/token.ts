@@ -16,3 +16,15 @@ export function setToken(token: string | null) {
     // storage unavailable: the session just won't survive a reload
   }
 }
+
+type Listener = () => void
+let onUnauthorized: Listener | null = null
+
+/** Register the callback fired when an authenticated request gets a 401. */
+export function setUnauthorizedHandler(listener: Listener | null) {
+  onUnauthorized = listener
+}
+
+export function notifyUnauthorized() {
+  onUnauthorized?.()
+}

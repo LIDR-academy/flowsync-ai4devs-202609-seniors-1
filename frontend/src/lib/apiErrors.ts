@@ -14,7 +14,10 @@ interface TuyauLikeError {
 }
 
 /** Translate a Tuyau error into user-facing messages. */
-export function toFormError(err: unknown): FormError {
+export function toFormError(
+  err: unknown,
+  context: 'login' | 'signup' | 'session' = 'login'
+): FormError {
   const e = err as TuyauLikeError
   if (e.kind === 'network') {
     return {
@@ -31,8 +34,14 @@ export function toFormError(err: unknown): FormError {
     }
     return { fields }
   }
-  if (e.status === 400 || e.status === 401) {
+  if (context === 'login' && (e.status === 400 || e.status === 401)) {
     return { form: 'Correo o contraseña incorrectos.', fields: {} }
+  }
+  if (context === 'session' && e.status === 401) {
+    return { form: 'No se pudo iniciar la sesión. Inténtalo de nuevo.', fields: {} }
+  }
+  if (e.status === 429) {
+    return { form: 'Demasiados intentos. Espera un momento e inténtalo de nuevo.', fields: {} }
   }
   return { form: 'Ha ocurrido un error inesperado. Inténtalo de nuevo.', fields: {} }
 }
@@ -49,7 +58,7 @@ function validationMessage(item: { message: string; rule?: string }): string {
     case 'minLength':
       return 'Debe tener al menos 8 caracteres.'
     case 'maxLength':
-      return 'Has superado la longitud máxima permitida (32 caracteres).'
+      return 'Has superado la longitud máxima permitida.'
     case 'sameAs':
       return 'Las contraseñas no coinciden.'
     default:
