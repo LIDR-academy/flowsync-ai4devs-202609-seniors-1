@@ -55,6 +55,11 @@ Siete cosas dentro:
 La cuenta y la sesión ya existen en el proyecto: no se construyen y no cuentan como alcance.
 Solo puede modificar la lista quien tenga una sesión iniciada.
 
+Desviación consciente de los hechos de partida, y la dejo escrita aquí en vez de esconderla: la
+ficha dice roles planos, sin jerarquía de permisos. El punto 5 introduce un rol de administrador
+para asignar a terceros. Es el único punto del alcance que no se apoya en los hechos, y el primero
+que quitaría si alguien lo discute.
+
 Riesgo número uno, y va dentro del alcance, no en una nota al pie: si la información se
 queda vieja, el producto pierde el sentido entero. La mitigación elegida es que actualizar
 cueste dos clics, no obligar a nadie. Eso es exactamente lo que el MVP existe para validar.
@@ -115,12 +120,12 @@ persona exige rol de administrador.
   estado va.
 - La marca visual de lo vencido, porque no ayuda a validar que alguien evita empezar algo que
   otro ya está tocando. La fecha ya está en la lista; pintarla de rojo es cosmética.
-- Derivar el estado de Git o del calendario, porque no ayuda a validar lo único que hay que
-  validar: si la gente teclea su estado cuando cuesta dos clics. Automatizarlo respondería
-  otra pregunta y dejaría la nuestra sin contestar.
+- Asignar tareas a otras personas, que la IA había metido dentro y yo dejé solo en
+  autoasignación, porque no ayuda a validar que la lista se mantenga fresca: quien mejor sabe
+  en qué está una persona es esa persona, y repartir trabajo desde fuera es la coordinación
+  que este MVP no promete resolver.
 
 **3. La exclusión de la que menos seguro estoy.** Editar y borrar tareas. Si en la semana de
 prueba la lista se llena de tareas duplicadas o mal creadas que ya no se pueden quitar, deja
-de ser fiable de un vistazo — y "de un vistazo" es todo el producto. Entraría en cuanto
-alguien vuelva a preguntar por chat "¿esta tarea sigue viva?": esa pregunta es exactamente la
-que vinimos a eliminar.
+de ser fiable y es practicamente  todo el producto. Entraría en cuanto
+alguien vuelva a preguntar.
