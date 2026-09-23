@@ -191,3 +191,38 @@ Cuando termines, dime en tres líneas qué has dejado fuera que te haya costado 
 ```
 
 **Qué salió:** escribió los tres tramos en `docs/prd/alcance-mvp-RA.md`. El alcance quedó en 7 cosas, con 21 exclusiones justificadas y 7 pasos siguientes. Para recortar más, endureció el SUPUESTO 7 (título y fecha ya no se editan).
+
+---
+
+## Prompt 7
+
+**Modelo:** Opus 5.5
+**Herramienta:** Claude Code
+
+```
+Los dos números. Cuántas cosas propuso la IA meter dentro del alcance, y cuántas quedaron dentro después de tu recorte. Tal cual salieron, sin redondear ni explicar.
+
+Tres cosas que dejaste fuera, y por qué cada una. El porqué tiene una forma concreta: qué hipótesis del producto no ayuda a validar. "No da tiempo" no vale, porque no es una decisión de producto: es una excusa de calendario, y mañana deja de ser cierta.
+
+La exclusión de la que menos seguro estás, y qué tendría que pasar para que entrara. Lo que interesa es qué dos cosas se contradecían: lo que te pedían contra lo que veías, lo barato contra lo que valida, lo que enamora contra lo que se puede sostener.
+
+⚠ Ninguna de las tres tiene respuesta correcta. La tercera es mejor cuanto más incómoda: un "no supe decidir esta" honesto vale más que un alcance cerrado con seguridad fingida.
+
+📌 Si la IA te discutió una decisión tuya y tenía razón, apúntalo aunque no lo pida ninguna de las tres. No es lo mismo que te proponga una funcionalidad de más que te señale una incoherencia: que el documento pida algo que él mismo prohíbe, o prometa algo que su propio alcance impide cumplir. Eso segundo es un fallo tuyo, y es lo más valioso que saca del rato.
+```
+
+**Qué salió:** no escribió la Parte B: propuso candidatas a recortar y señaló cuatro incoherencias del documento.
+
+---
+
+## Prompt 8
+
+**Modelo:** Opus 5.5
+**Herramienta:** Claude Code
+
+```
+puedes integrar para la cumplir con la parte b
+```
+
+**Qué salió:** la IA hizo el recorte (7 → 6: fuera la fecha de vencimiento y el filtro por estado) y escribió la Parte B. Tanto el recorte como la redacción de la Parte B son de la IA, a petición mía.
+

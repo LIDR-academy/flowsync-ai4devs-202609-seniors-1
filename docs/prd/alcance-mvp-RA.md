@@ -26,10 +26,10 @@
 - **SUPUESTO 1:** toda persona que se registra entra directamente en el único espacio compartido, sin invitaciones ni aprobación.
 - **SUPUESTO 2:** hay tres estados fijos y no configurables: *Pendiente*, *En curso* y *Hecha*.
 - **SUPUESTO 3:** el responsable es opcional y es una sola persona. Una tarea sin responsable está libre, y cogerla consiste en asignársela uno mismo.
-- **SUPUESTO 4:** solo el título es obligatorio. El responsable y la fecha de vencimiento pueden quedar vacíos.
-- **SUPUESTO 5:** una tarea no *Hecha* cuya fecha ya pasó se distingue visualmente en la lista, sin avisos.
+- **SUPUESTO 4:** solo el título es obligatorio. El responsable puede quedar vacío.
+- **SUPUESTO 5 (retirado en el recorte):** la fecha de vencimiento sale del MVP, así que ya no hay tareas vencidas que distinguir.
 - **SUPUESTO 6:** "ver qué se ha movido" se resuelve con la lista al día, que se actualiza sola. No hay vista de cambios desde la última visita ni historial.
-- **SUPUESTO 7:** después de crear una tarea solo se cambian su estado y su responsable. El título y la fecha no se editan, y las tareas no se borran ni se archivan.
+- **SUPUESTO 7:** después de crear una tarea solo se cambian su estado y su responsable. El título no se edita, y las tareas no se borran ni se archivan.
 - **SUPUESTO 8:** un único equipo por instalación. Tener varios equipos separados, o una persona en más de uno, no se construye.
 
 ## 3. El alcance
@@ -44,16 +44,15 @@ Los miembros de un equipo remoto pequeño (3–10 personas), todos al mismo nive
 
 ### Propuesta de valor
 
-Una única lista de tareas del equipo que es, a la vez, la cola de trabajo de cada uno. Con abrirla basta para saber quién está en qué, qué está libre y qué se ha pasado de plazo, sin preguntar y sin refrescar. Actualizarla cuesta dos clics, y quien la actualiza cobra en el momento: la usa para decidir qué coge y deja de recibir el "¿cómo va?".
+Una única lista de tareas del equipo que es, a la vez, la cola de trabajo de cada uno. Con abrirla basta para saber quién está en qué, y qué está libre, sin preguntar y sin refrescar. Actualizarla cuesta dos clics, y quien la actualiza cobra en el momento: la usa para decidir qué coge y deja de recibir el "¿cómo va?".
 
 ### Alcance
 
 - **Un espacio compartido.** Quien se registra con la cuenta que ya existe entra directamente en el espacio común y ve las tareas de todo el equipo. No hay invitaciones ni equipos que crear.
-- **Crear una tarea escribiendo solo el título.** El responsable y la fecha de vencimiento son opcionales.
+- **Crear una tarea escribiendo solo el título.** El responsable es opcional.
 - **Cambiar el estado desde la propia lista, en dos clics.** Hay tres estados: *Pendiente*, *En curso* y *Hecha*.
 - **Asignar o cambiar el responsable,** incluido asignársela uno mismo para coger una tarea libre.
-- **Una sola lista del equipo.** Muestra título, responsable, estado y fecha de cada tarea, deja claro qué está libre y distingue lo vencido.
-- **Filtrar la lista por estado,** para centrarse en lo pendiente.
+- **Una sola lista del equipo.** De cada tarea se ve qué es, quién la lleva y en qué estado está, y queda claro qué está libre.
 - **La lista refleja los cambios de los demás sin refrescar.**
 
 ### NO-alcance
@@ -71,12 +70,14 @@ Una única lista de tareas del equipo que es, a la vez, la cola de trabajo de ca
 - **Sprints, estimaciones, épicas, backlog priorizado:** renuncia explícita. Un equipo que los necesite no es nuestro usuario.
 - **Analítica e informes:** ya decidido que queda fuera. Nadie reporta hacia arriba.
 - **Resolver bloqueos:** esa parte de la daily sigue existiendo. El MVP solo quiere eliminar la ronda de "¿en qué estás?".
-- **Editar el título o la fecha de una tarea:** para saber quién está en qué solo hace falta mover el estado y el responsable.
-- **Borrar o archivar tareas:** las tareas hechas se apartan filtrando por estado.
+- **Fecha de vencimiento y marcar lo vencido:** la ronda que queremos eliminar pregunta quién está en qué, no qué va con retraso.
+- **Filtrar por estado:** con 3–10 personas, la lista entera se abarca de un vistazo.
+- **Editar el título de una tarea:** para saber quién está en qué solo hace falta mover el estado y el responsable.
+- **Borrar o archivar tareas:** con 3–10 personas, las tareas hechas no tapan la lista durante la prueba.
 - **Estados configurables:** tres estados fijos bastan para saber qué está libre, en curso o terminado.
 - **Varios responsables por tarea:** con uno basta para saber quién está en qué.
-- **Más datos en la tarea (descripción, prioridad, etiquetas, subtareas, adjuntos):** según la ficha, una tarea necesita solo título, responsable, estado y fecha. Cada campo más es "rollo".
-- **Otros filtros, búsqueda u ordenación:** la ficha pide filtrar por estado y, con 3–10 personas, la lista se abarca de un vistazo.
+- **Más datos en la tarea (descripción, prioridad, etiquetas, subtareas, adjuntos):** para saber quién está en qué bastan título, responsable y estado. Cada campo más es "rollo".
+- **Búsqueda u ordenación:** con 3–10 personas, la lista se abarca de un vistazo.
 - **Vista de cambios desde la última visita, o historial:** la lista al día ya responde "qué está pasando ahora", que es lo que cambia la decisión.
 - **Editar el perfil o recuperar la contraseña:** no influyen en si el equipo puede cancelar la ronda.
 
@@ -84,8 +85,29 @@ Una única lista de tareas del equipo que es, a la vez, la cola de trabajo de ca
 
 - Resumen de "qué se ha movido desde tu última visita".
 - Filtro de "mis tareas" por responsable.
-- Editar el título y la fecha de una tarea.
+- Fecha de vencimiento, con lo vencido marcado y editable.
+- Filtrar la lista por estado.
+- Editar el título de una tarea.
 - Archivar tareas hechas.
 - Historial de cambios de una tarea.
 - Varios espacios de equipo con invitaciones.
 - Recuperar la contraseña.
+
+## Parte B: las tres líneas
+
+**1. Los dos números.** La IA propuso 7 cosas dentro del alcance. Después del recorte quedan 6.
+
+**2. Tres cosas que dejé fuera, y por qué:**
+
+- **La fecha de vencimiento y marcar lo vencido,** fuera porque no ayuda a validar que el equipo pueda dejar la ronda de "¿en qué estás?". Esa ronda pregunta quién está en qué, no qué va con retraso.
+- **Filtrar por estado,** fuera porque no ayuda a validar que el estado del equipo se vea de un vistazo. Con 3–10 personas, la lista entera ya se abarca sin filtrar.
+- **Editar el título de una tarea,** fuera porque no ayuda a validar que nadie empiece algo que otro ya está tocando. Para eso solo cuentan el estado y el responsable.
+
+**3. La exclusión de la que menos seguro estoy:** el resumen de "qué se ha movido desde tu última visita". Chocan lo que pedía la ficha ("llego por la mañana y veo qué se ha movido") y lo barato (una lista que enseña cómo está todo ahora). El estado actual basta para decidir qué coger, pero no dice qué ha cambiado. Entraría si, en la semana de prueba, alguien sigue preguntando en la daily "¿qué ha cambiado desde ayer?".
+
+**📌 Incoherencias que señaló la IA, y tenía razón:**
+
+- **El documento promete algo que su alcance no cumple.** La respuesta 4 del interrogatorio habla de "ver qué se ha movido", pero el alcance solo enseña el estado actual. Queda abierto: es la duda del punto 3.
+- **Fechas vencidas que no se podían corregir.** El alcance prometía ver lo vencido, pero el SUPUESTO 7 prohibía editar la fecha: una fecha mal puesta dejaba una tarea vencida para siempre, y eso ensuciaba la señal que el documento llama riesgo #1. Resuelto: la fecha sale del MVP.
+- **Tareas que no se pueden borrar.** Una tarea duplicada o creada por error se queda libre y *Pendiente* para siempre, y contamina el "qué está libre". Queda abierto.
+- **La ficha dice "sin campos obligatorios", pero el título es obligatorio.** Es una contradicción literal, aunque menor. Se acepta: una tarea sin título no dice en qué está nadie.
