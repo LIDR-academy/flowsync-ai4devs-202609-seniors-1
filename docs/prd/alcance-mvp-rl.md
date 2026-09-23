@@ -8,7 +8,7 @@
 
 - **Capabilities:** solo gestión de cuenta. Registrarse (email + contraseña, nombre opcional), iniciar sesión, ver tu propio perfil y cerrar sesión; el frontend son esas tres pantallas: login, registro y perfil.
 - **Modelo de datos:** dos entidades. Usuario (email único, contraseña, nombre opcional; las iniciales se calculan) y token de acceso (la sesión, ligada a su usuario).
-- **No existe:** ni equipo, ni tarea, ni estado, ni actividad, y ningún usuario puede ver a otro; tampoco hay tiempo real (ni WebSockets ni SSE).
+- **No existe:** ni equipo, ni tarea, ni estado, ni actividad, y ningún usuario puede ver a otro; tampoco hay nada en tiempo real.
 - **Lectura:** todo lo que pide producto es nuevo; lo aprovechable es la identidad y la sesión. La UI ya promete «tareas» y «equipo» sin nada detrás.
 
 ## 2. El interrogatorio
@@ -43,7 +43,7 @@ Los marcados «ficha» los fija producto; el resto son decisiones tomadas para h
 - **Acceso:** quien tiene cuenta está dentro del espacio y lo ve todo; no hay invitaciones. Vale para un piloto de un solo equipo, no para abrirlo a cualquiera.
 - **Estados:** Pendiente, En curso y Hecha. Sin «Bloqueada»: los bloqueos siguen en la daily.
 - **Campos obligatorios:** solo el título. El responsable es opcional y toda tarea nace Pendiente.
-- **«Libre»:** una tarea sin responsable. Empezarla, pasándola a En curso, te hace su responsable: empezar es reclamarla. Si otro la reclamó antes, sigue siendo suya.
+- **«Libre»:** una tarea sin responsable. Se reclama empezándola, que la pasa a En curso y te hace su responsable, o asignándotela; si otro la reclamó antes, sigue siendo suya. Reasignar una tarea con dueño es un traspaso, no un reclamo.
 - **Orden de la lista:** En curso arriba, luego Pendiente y Hecha al final, para que quién está en qué se vea sin filtrar.
 - **Frescura:** lo que cambia otro aparece en menos de un minuto, y la lista está al día nada más volver a ella; la ficha no da umbral.
 - **Plataforma:** web, en el navegador, como lo que ya existe; sin app móvil.
@@ -73,8 +73,8 @@ El MVP existe para validar una sola cosa: que tras una semana de uso real el equ
 
 1. **Una lista compartida.** Todo el que tiene cuenta ve la misma lista de tareas. Cada tarea muestra título, responsable y estado, y la lista va ordenada por estado, con lo que está En curso arriba.
 2. **Crear una tarea escribiendo solo el título.** El responsable es opcional, y la tarea nace Pendiente.
-3. **Cambiar el estado desde la lista en dos clics como máximo:** Pendiente, En curso, Hecha. Empezar una tarea libre te hace su responsable: queda a la vista que alguien la está tocando. Si dos la empiezan casi a la vez, se la queda el primero y el segundo ve que ya tiene dueño.
-4. **Editar una tarea:** título y responsable.
+3. **Cambiar el estado desde la lista en dos clics como máximo:** Pendiente, En curso, Hecha. Empezar una tarea libre te hace su responsable: queda a la vista que alguien la está tocando. Si dos la reclaman casi a la vez, se la queda el primero y el segundo ve que ya tiene dueño.
+4. **Editar una tarea:** título y responsable. Asignarse una tarea libre sigue la misma regla, gana el primero; reasignar una que ya tiene dueño es un traspaso deliberado.
 5. **La lista se actualiza sola, sin recargar:** lo que cambia otro aparece en menos de un minuto, y al volver a la lista ya está al día.
 
 ### NO-alcance
@@ -84,7 +84,7 @@ El MVP existe para validar una sola cosa: que tras una semana de uso real el equ
 - **Fecha de vencimiento y vencidas** (recorte propio). No ayuda a validar que la ronda desaparece: la ronda pregunta quién está en qué, no qué llega tarde. Sin las vencidas, la fecha sería un campo más que rellenar sin uso. La ficha de producto la pedía.
 - **Actualización al instante.** Basta con menos de un minuto: no empezar lo que otro ya está tocando aguanta ese retraso en un equipo de 3 a 10 personas. Lo que impide que dos reclamen la misma tarea no es la velocidad, sino que gane el primero.
 - **Avisos: notificaciones push o email.** FlowSync es un resumen que espera, no un aviso que interrumpe. Además, si la gente reacciona a avisos no sabremos si mira la lista, que es justo lo que hay que validar.
-- **Integraciones: Slack, Git/PRs, CI, calendario, sincronizar o importar desde Jira u otro gestor.** La lista tiene que ser el único sitio donde se lee y se escribe el estado; un segundo canal es la doble actualización que mata esta categoría. Derivar el estado es otro producto, con OAuth de terceros, y lo que hay que validar es que teclearlo en dos clics basta.
+- **Integraciones: Slack, Git/PRs, CI, calendario, sincronizar o importar desde Jira u otro gestor.** La lista tiene que ser el único sitio donde se lee y se escribe el estado; un segundo canal es la doble actualización que mata esta categoría. Derivar el estado es otro producto, y lo que hay que validar es que teclearlo en dos clics basta.
 - **Presencia: quién está conectado, última actividad, indicadores de actividad.** Es vigilancia y se rechaza a propósito: el estado es de la tarea, no de la persona.
 - **Conversación: comentarios, menciones, chat, videollamada, edición simultánea.** FlowSync enseña el estado de las tareas, no es un sitio para hablar: la conversación sigue en su chat, y comentar no responde a «¿en qué estás?».
 - **Planificación: sprints, estimaciones, épicas, backlog priorizado, informes y analítica.** Cada una añade una decisión antes de poder actualizar, y el coste de actualizar es el riesgo #1. Nadie consume informes hacia arriba, y el equipo que necesita esto no es el usuario.
@@ -104,8 +104,8 @@ El MVP existe para validar una sola cosa: que tras una semana de uso real el equ
    - «Qué se ha movido» fuera, porque no ayuda a validar que el equipo deja la ronda de «¿en qué estás?»: la ronda pregunta en qué está cada uno ahora, y eso ya lo responde el estado actual de la lista.
    - Filtrar por estado fuera, porque no ayuda a validar que el equipo ve de un vistazo quién está en qué: con 3 a 10 personas y la lista ordenada por estado, lo que se está tocando ya sale arriba sin filtrar.
    - La fecha de vencimiento fuera, porque no ayuda a validar que la gente deja de preguntar «¿en qué estás?»: responde a otra pregunta, «¿llegamos a tiempo?», y cada campo más encarece crear y mantener tareas.
-3. **La exclusión de la que menos seguro estoy:** la fecha de vencimiento, porque producto la pedía expresamente. Entraría si durante la semana de piloto la ronda no desaparece porque se sigue preguntando por plazos, o si el equipo empieza a apuntar fechas en el título de las tareas. La actualización automática tuvo ida y vuelta: la saqué porque creí que exigía sockets y era demasiada complejidad para un MVP, y la recuperé al ver que bastaba con que la lista se pidiera sola cada medio minuto, sin infraestructura nueva. Entró porque acorta la ventana en la que dos pueden coger la misma tarea; lo que lo impide del todo es que gane el primero.
+3. **La exclusión de la que menos seguro estoy:** la fecha de vencimiento, porque producto la pedía expresamente. Entraría si durante la semana de piloto la ronda no desaparece porque se sigue preguntando por plazos, o si el equipo empieza a apuntar fechas en el título de las tareas. No fue la única duda: la actualización automática estuvo fuera y volvió. La saqué por lo que creía que costaba, no porque no ayudara a validar, y por eso el recorte no aguantó (ver hallazgo): en cuanto vi que era barata, entró, porque acorta la ventana en la que dos pueden coger la misma tarea.
 
 ## Hallazgo
 
-El alcance solo bajó a arquitectura una vez: la actualización automática se discutió en sockets y peticiones periódicas, no en producto. Subida de nivel, la pregunta era cuánto retraso aguanta la decisión de no empezar lo que otro ya está tocando; en el documento quedó la respuesta, menos de un minuto, y no el cómo.
+La conversación solo bajó a arquitectura una vez: la actualización automática se discutió en sockets y peticiones periódicas, no en producto. Subida de nivel, la pregunta era cuánto retraso aguanta la decisión de no empezar lo que otro ya está tocando; en el alcance quedó la respuesta, menos de un minuto, y no el cómo.

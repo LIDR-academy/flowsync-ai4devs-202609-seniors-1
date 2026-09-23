@@ -161,3 +161,15 @@ write part B, the three lines
 ```
 
 **Qué salió:** Parte B debajo del alcance: 8 → 5; fuera «qué se ha movido», el filtro por estado y la fecha de vencimiento; la menos segura es la fecha, con las señales del piloto que la harían entrar.
+
+## Prompt 9
+
+**Modelo:** Opus 5.5 Max
+**Herramienta:** Claude Code
+
+```
+add to third point the back and forth with point 7 (the live update)
+then add the finding line, then commit and open the PR
+```
+
+**Qué salió:** añadió la ida y vuelta de la actualización automática a la línea 3 y el hallazgo, hizo el commit y abrió el PR contra `s2/start` del repo del curso. El revisor adversarial vio que la Parte B nombraba el mecanismo (sockets, cada medio minuto) y contradecía el hallazgo, y que editar el responsable se saltaba «gana el primero»; lo corrigió en un segundo commit.
