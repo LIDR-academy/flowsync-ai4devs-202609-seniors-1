@@ -41,7 +41,7 @@ Un análisis del proyecto, con estructura, convenciones, modelo de datos y coman
 
 **Modelo:** Opus 5
 **Herramienta:** Claude Code
-**Tiempo: ** 3m
+**Tiempo:** 3m
 
 ```
 Vamos a crear un arnés de seguridad en el cual vamos a seguir estos puntos:
@@ -58,10 +58,11 @@ Vamos a crear un arnés de seguridad en el cual vamos a seguir estos puntos:
 La definición del arnés de seguridad escrita en el claude.md
 
 
-## Prompt n
+## Prompt 3
 
 **Modelo:** Opus 5
 **Herramienta:** Claude Code
+**Tiempo:** 5m
 
 ```
 Crear pantalla de login con campos para la entrada del usuario, clave y opciones para recordar al usuario asi como el registro del mismo. El diseño de esta página debe ser simple y funcional.
@@ -71,88 +72,5 @@ Mostrar opción para crear cuenta en caso que el usuario no tenga cuenta actualm
 ```
 
 **Qué salió:** 
+La pantalla con los requerimientos solicitados.
 
-
-## Prompt n
-
-**Modelo:** Opus 5
-**Herramienta:** Claude Code
-
-```
-
-
-```
-
-**Qué salió:** 
-
-## Prompt n
-
-**Modelo:** Opus 5
-**Herramienta:** Claude Code
-
-```
-
-
-```
-
-**Qué salió:** 
-
-## Prompt n
-
-**Modelo:** Opus 5
-**Herramienta:** Claude Code
-
-```
-
-
-```
-
-**Qué salió:** 
-
-## Prompt n
-
-**Modelo:** Opus 5
-**Herramienta:** Claude Code
-
-```
-
-
-```
-
-**Qué salió:** 
-
-## Prompt n
-
-**Modelo:** Opus 5
-**Herramienta:** Claude Code
-
-```
-
-
-```
-
-**Qué salió:** 
-
-## Prompt n
-
-**Modelo:** Opus 5
-**Herramienta:** Claude Code
-
-```
-
-
-```
-
-**Qué salió:** 
-
-## Prompt n
-
-**Modelo:** Opus 5
-**Herramienta:** Claude Code
-
-```
-
-
-```
-
-**Qué salió:** 
