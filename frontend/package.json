@@ -7,9 +7,12 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
+    "format": "prettier --write .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@adonisjs/http-server": "^9.3.0",
+    "@tuyau/core": "^1.2.2",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },
@@ -19,6 +22,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
     "oxlint": "^1.71.0",
+    "prettier": "^3.9.7",
     "typescript": "~6.0.2",
     "vite": "^8.1.1"
   }
