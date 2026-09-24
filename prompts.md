@@ -22,14 +22,14 @@ Borra el ejemplo de abajo cuando escribas el primero.
 
 ## Prompt 1
 
-**Modelo:** Opus 1M xHigh
-**Herramienta:** Claude Code
+**Modelo:** claude-sonnet-5
+**Herramienta:** Claude Code in IntelliJ
 
 ```
-Este es el ejemplo. Bórralo.
-
-El prompt va aquí dentro, entero y con sus saltos de línea,
-para que se sepa dónde empieza y dónde acaba.
+/jira-ticket FLOW-1
 ```
 
-**Qué salió:** (opcional, una línea) funcionó a la primera / tuve que insistir / me inventó una ruta que no existe.
+**Qué salió:** funcionó a la primera.
+
+
+Instala y configura todo lo necesario como parte del ticket. Las dependencias en este caso se pueden instalar y no existe un spec OpenAPI expuesto pero no lo definas como parte del trabajo
