@@ -22,14 +22,39 @@ Borra el ejemplo de abajo cuando escribas el primero.
 
 ## Prompt 1
 
-**Modelo:** Opus 1M xHigh
+**Modelo:** Opus 5 (effort: low)
 **Herramienta:** Claude Code
+**Copia sin harness** Yes
 
 ```
-Este es el ejemplo. Bórralo.
+Analiza este requerimiento:
+Se necesita que una persona pueda darse de alta en el sistema por su cuenta. Abrirá un formulario web donde indicará su correo y una clave, y al enviarlo el sistema debe crear el nuevo usuario.
+Criterios de aceptación:
+1. El sistema valida correctamente el correo y la clave antes de enviar el formulario.
+2. Si los datos no son válidos, la persona ve un mensaje que le indica qué corregir.
+3. Cuando el alta se completa, la persona recibe confirmación de que su usuario fue creado.
 
-El prompt va aquí dentro, entero y con sus saltos de línea,
-para que se sepa dónde empieza y dónde acaba.
+Implementalo y avísame del resultado con un resumen de implementación.
 ```
 
-**Qué salió:** (opcional, una línea) funcionó a la primera / tuve que insistir / me inventó una ruta que no existe.
+**Qué salió:** Funciono a la primera, claude me implemento el login y si bien no tenia como saber de la existencia del user.ts con validaciones, el miro el backend y rescato las validaciones.
+
+
+## Prompt 2
+
+**Modelo:** Opus 5 (effort: low)
+**Herramienta:** Claude Code
+**Copia CON harness**
+
+```
+Analiza este requerimiento:
+Se necesita que una persona pueda darse de alta en el sistema por su cuenta. Abrirá un formulario web donde indicará su correo y una clave, y al enviarlo el sistema debe crear el nuevo usuario.
+Criterios de aceptación:
+1. El sistema valida correctamente el correo y la clave antes de enviar el formulario.
+2. Si los datos no son válidos, la persona ve un mensaje que le indica qué corregir.
+3. Cuando el alta se completa, la persona recibe confirmación de que su usuario fue creado.
+
+Implementalo y avísame del resultado con un resumen de implementación.
+```
+
+**Qué salió:** Funciono a la primera, Formulario de alta hecho, en React dentro de frontend/. No toquo nada de backend (lo especifique en claude.md)/. Compila y pasa lint sin errores. Probé contra el backend en marcha con curl: un alta válida crea el usuario, un correo repetido devuelve 422 con regla database.unique, y los datos malos devuelven 422 con error por campo.
