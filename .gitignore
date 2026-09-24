@@ -24,3 +24,7 @@ coverage/
 .DS_Store
 .vscode/
 .idea/
+
+# Archivos temporales
+docs/harness/diffs.txt
+docs/harness/comparacion-full.md
