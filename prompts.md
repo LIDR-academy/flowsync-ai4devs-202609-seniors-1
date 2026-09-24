@@ -22,14 +22,23 @@ Borra el ejemplo de abajo cuando escribas el primero.
 
 ## Prompt 1
 
-**Modelo:** Opus 1M xHigh
+**Modelo:** Sonnet 5 High
 **Herramienta:** Claude Code
 
-```
-Este es el ejemplo. Bórralo.
+1. CONTEXTO/ROLE  (corto, solo si añade restricciones reales)
+   "Trabajas en el frontend de FlowSync: React 19 + Tailwind + shadcn/ui."
 
-El prompt va aquí dentro, entero y con sus saltos de línea,
-para que se sepa dónde empieza y dónde acaba.
-```
+2. OBJETIVO / TAREA  (orientado a outcome, no a steps)
+   "Ejecuta la tarea Flow-7 del espacio FlowSync de Jira."
 
-**Qué salió:** (opcional, una línea) funcionó a la primera / tuve que insistir / me inventó una ruta que no existe.
+3. CRITERIOS DE ÉXITO EXPLÍCITOS
+   "Los criterios se encuentran en la descripción de la tarea Flow-7"
+
+4. RESTRICCIONES / ANTIPATTERNS  (qué NO hacer)
+   "No toques el backend — el auth ya existe. No instales una librería de formularios sin justificarlo."
+
+5. RECURSOS  (referencias, no copy-paste)
+   "Usa los componentes de shadcn/ui. Convenciones en AGENTS.md."
+
+6. CLARIFICACIÓN  (si el espacio de soluciones es ambiguo)
+   "Si el ticket no especifica un campo del formulario, revisa el validador real del backend antes de asumir."
