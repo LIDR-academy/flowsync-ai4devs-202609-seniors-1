@@ -20,16 +20,57 @@ Borra el ejemplo de abajo cuando escribas el primero.
 
 ---
 
+CON HARNESS
+
 ## Prompt 1
 
-**Modelo:** Opus 1M xHigh
+**Modelo:** Sonnet 5
+**Herramienta:** Claude Code
+```
+Desarrolla lo necesario para resolver el ticket "Registro de usuario" definido en el tablero FlowSync de Jira
+```
+
+El ticket dice: 
+Como usuario sin cuenta, quiero poder registrarme con mi nombre de usuario, email y contraseña, para obtener acceso autenticado a la aplicación sin intervención manual de un administrador
+Criterios de aceptacion
+Si los datos introducidos son válidos, se registra el usuario, sus datos quedan registrados en la BD y se devuelve ok
+Si el nombre o el email ya existen, se devuelve un error sin dar pistas de que la el email ya forma parte de una cuenta registrada previamente
+La contraseña tendra unas minimas exigencias de robustez
+Se pedira repetir la contraseña para asegurarse de que el usuario elige la deseada. Si las indicadas no coinciden se le indicara y no se procedera al registro
+
+
+## Prompt 2
+
+**Modelo:** Sonnet 5
+**Herramienta:** Claude Code
+```
+Usa adversarial-reviewer para revisar mi diff
+```
+
+SIN HARNESS
+
+## Prompt 1
+
+**Modelo:** Sonnet 5
+**Herramienta:** Claude Code
+```
+Desarrolla lo necesario para resolver el ticket "Registro de usuario" definido en el tablero FlowSync de Jira
+```
+
+El ticket dice: 
+Como usuario sin cuenta, quiero poder registrarme con mi nombre de usuario, email y contraseña, para obtener acceso autenticado a la aplicación sin intervención manual de un administrador
+Criterios de aceptacion
+Si los datos introducidos son válidos, se registra el usuario, sus datos quedan registrados en la BD y se devuelve ok
+Si el nombre o el email ya existen, se devuelve un error sin dar pistas de que la el email ya forma parte de una cuenta registrada previamente
+La contraseña tendra unas minimas exigencias de robustez
+Se pedira repetir la contraseña para asegurarse de que el usuario elige la deseada. Si las indicadas no coinciden se le indicara y no se procedera al registro
+
+## Prompt 2
+
+**Modelo:** Sonnet 5
 **Herramienta:** Claude Code
 
 ```
-Este es el ejemplo. Bórralo.
-
-El prompt va aquí dentro, entero y con sus saltos de línea,
-para que se sepa dónde empieza y dónde acaba.
+Backend + formulario frontend
 ```
-
-**Qué salió:** (opcional, una línea) funcionó a la primera / tuve que insistir / me inventó una ruta que no existe.
+(respuesta a l ticket FLOW-1 "Registro de usuario" tiene criterios de aceptación puramente de backend/API (validación, BD, errores). El frontend está en su plantilla base de Vite/React, sin router ni cliente HTTP. ¿Qué alcance implemento?)
